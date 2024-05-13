@@ -1,1 +1,7 @@
 https://pytorch.org/tutorials/beginner/colab
+
+
+# 1
+!pip3 uninstall --yes torch torchaudio torchvision torchtext torchdata
+!pip3 install torch torchaudio torchvision torchtext torchdata
+
