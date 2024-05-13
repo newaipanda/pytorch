@@ -86,3 +86,6 @@ printLines(os.path.join(corpus, "utterances.jsonl"))
 # click top right icon （RAM Disk） the bottom link ：
 # Change runtime type
 # you can select V100 or A100 GPU nvidia for acceleration 
+
+# if in competition environment , maybe choose A100 at beginning
+# because if you change the accelerator, the coding may stop to run!!!
