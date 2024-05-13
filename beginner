@@ -1,7 +1,21 @@
-https://pytorch.org/tutorials/beginner/colab
+# https://pytorch.org/tutorials/beginner/colab
+
+# google colab is env for ioai
+# https://colab.research.google.com/github/pytorch/tutorials/blob/gh-pages/_downloads/070179efc13bd796c5dd4af7bf52d5b9/intro.ipynb
+# connect remote server first (top right)
+
+# bug 1  (13th May 2024): quick start in google colab: https://github.com/pytorch/tutorials/blob/gh-pages/_downloads/070179efc13bd796c5dd4af7bf52d5b9/quickstart_tutorial.html
+# 404 - page not found 
 
 
-# 1
+# 1 PyTorch Version in Google Colab
+# update to lasted pytorch  (2.3)
+
+# check the verson
+import torch
+print(torch.__version__)
+
+# command for update to lastest
 !pip3 uninstall --yes torch torchaudio torchvision torchtext torchdata
 !pip3 install torch torchaudio torchvision torchtext torchdata
 
