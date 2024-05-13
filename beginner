@@ -81,3 +81,8 @@ printLines(os.path.join(corpus, "utterances.jsonl"))
 # Drive already mounted at ...
 # b'{"id": "L1045", "conversation_id":  ...
 
+
+# STEP 3 Enabling CUDA
+# click top right icon （RAM Disk） the bottom link ：
+# Change runtime type
+# you can select V100 or A100 GPU nvidia for acceleration 
