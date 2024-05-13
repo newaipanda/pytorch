@@ -8,7 +8,7 @@
 # 404 - page not found 
 
 
-# 1 PyTorch Version in Google Colab
+# STEP 1 PyTorch Version in Google Colab
 # update to lasted pytorch  (2.3)
 
 # check the verson
@@ -20,7 +20,7 @@ print(torch.version.cuda)
 !pip3 uninstall --yes torch torchaudio torchvision torchtext torchdata
 !pip3 install torch torchaudio torchvision torchtext torchdata
 
-# 2 Using Tutorial Data from Google Drive in Colab
+# STEP 2 Using Tutorial Data from Google Drive in Colab
 # online folder import from Google Drive
 from google.colab import drive
 drive.mount('/content/gdrive')
@@ -37,8 +37,47 @@ drive.mount('/content/gdrive')
 # zip file can be process by right click "open with" zip extractor , online
 # it can unzip the .zip file to normal fold and save all to your google drive
 
+corpus_name = "movie-corpus"
+corpus = os.path.join("/content/gdrive/My Drive/ioai", corpus_name)
+# path must be full address, "/content/gdrive/My Drive/ioai", is an example 
+# if create folder ioai in home folder of My Drive
+
+# full demo code
+import torch
+from torch.jit import script, trace
+import torch.nn as nn
+from torch import optim
+import torch.nn.functional as F
+import csv
+import random
+import re
+import os
+import unicodedata
+import codecs
+from io import open
+import itertools
+import math
+import json
 
 
+USE_CUDA = torch.cuda.is_available()
+device = torch.device("cuda" if USE_CUDA else "cpu")
 
+from google.colab import drive
+drive.mount('/content/gdrive')
 
+corpus_name = "movie-corpus"
+corpus = os.path.join("/content/gdrive/My Drive/ioai", corpus_name)
+
+def printLines(file, n=10):
+    with open(file, 'rb') as datafile:
+        lines = datafile.readlines()
+    for line in lines[:n]:
+        print(line)
+
+printLines(os.path.join(corpus, "utterances.jsonl"))
+
+# output:
+# Drive already mounted at ...
+# b'{"id": "L1045", "conversation_id":  ...
 
