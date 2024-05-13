@@ -440,6 +440,9 @@ Application of Domain Knowledge: If the competition is related to a specific dom
 Model Interpretability: In certain domains, such as medical diagnosis or credit scoring, the interpretability of the model is crucial. If the competition requires participants to provide interpretable models, models with good interpretability may rank higher than "black-box" models.
 ’‘’
 
+# Homework: 消融实验(Ablation Study) 
+# 5 changes, so fix 4 , only make 1 changes and run , then compare all 5 cases
+
 ‘’‘
 panda中文收藏
 可解释性:通过为每个优化步骤提供清晰的解释,如增加epochs数、使用Adam优化器、添加层、引入Dropout和增加批次大小,我们可以更好地理解这些变化如何促进模型性能的提升。
