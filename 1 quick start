@@ -354,6 +354,56 @@ with torch.no_grad():
 
 # output： Accuracy: 88.7%, Avg loss: 0.329483 ， VS 64% of version 1
 
+
+# Changes for V2
+
+# Before:
+# batch_size = 64
+# After:
+batch_size = 128
+
+# Before:
+# model = NeuralNetwork().to(device)
+# After:
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            # Added Dropout layer
+            nn.Dropout(p=0.2),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            # Added Dropout layer
+            nn.Dropout(p=0.2),
+            # Added extra linear and ReLU layers
+            nn.Linear(512, 256),
+            nn.ReLU(),
+            nn.Linear(256, 10)
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+
+model = NeuralNetwork().to(device)
+
+# Before:
+# optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
+# After:
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+
+# Before:
+# epochs = 5
+# After:
+epochs = 15
+
+
+
+
 ‘’‘
 可解释性 (Interpretability): By providing clear explanations for each optimization step, such as increasing the number of epochs, using the Adam optimizer, adding layers, introducing Dropout, and increasing the batch size, we gain a better understanding of how these changes contribute to the model's performance improvement.
 过拟合 (Overfitting): Overfitting occurs when a model learns the noise in the training data to the extent that it negatively impacts its performance on new data. By adding Dropout layers and not drastically increasing the number of epochs, we reduce the risk of overfitting and improve the model's generalization ability.
