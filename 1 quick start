@@ -428,6 +428,16 @@ These concepts can be further explained using the hamburger shop analogy:
 泛化能力 (Generalization Ability): A model with good generalization ability is like a hamburger that appeals to a wide range of customers, even those who haven't tried it before.
 特征学习 (Feature Learning): The added layers in the model are like incorporating new flavors and textures into the hamburger, making it more interesting and enjoyable.
 超参数调优 (Hyperparameter Tuning): Tuning hyperparameters is like adjusting the recipe and cooking process to create the perfect hamburger that satisfies the customers' tastes.
+
+Competition Standard
+Accuracy: In many machine learning competitions, the accuracy of the model on the test dataset is the primary evaluation metric. The higher the accuracy, the higher the ranking. However, focusing solely on accuracy may overlook other important characteristics of the model.
+Model Complexity: If the competition has constraints on model complexity, such as the number of parameters or model depth, simpler models with good performance may rank higher than more complex models. This encourages participants to design efficient and effective model architectures.
+Inference Speed: In some scenarios, the inference speed of the model can be a critical consideration. If the competition requires the model to run in resource-constrained environments, such as mobile devices or embedded systems, models with faster inference speeds may rank higher.
+Generalization Ability: The competition may evaluate the generalization ability of the models using a private test dataset that participants cannot access. In this case, models that overfit the training data may perform poorly in the rankings, while models that generalize well to new data will achieve higher rankings.
+Innovation: Some competitions may place a special emphasis on the innovativeness and originality of the participants' approaches. Models that introduce novel techniques, architectures, or training methods may receive additional recognition and higher rankings.
+Code Quality and Reproducibility: Competitions may require participants to submit their code for review. The quality, readability, and reproducibility of the code may impact the rankings. Good coding practices and detailed documentation can help participants achieve higher rankings.
+Application of Domain Knowledge: If the competition is related to a specific domain, such as healthcare, finance, or natural language processing, models that successfully apply domain knowledge may outperform generic models. Demonstrating a deep understanding of the problem domain can boost rankings.
+Model Interpretability: In certain domains, such as medical diagnosis or credit scoring, the interpretability of the model is crucial. If the competition requires participants to provide interpretable models, models with good interpretability may rank higher than "black-box" models.
 ’‘’
 
 ‘’‘
@@ -455,4 +465,14 @@ panda中文收藏
 泛化能力:具有良好泛化能力的模型就像一个汉堡,即使是从未尝试过的顾客也会喜欢。
 特征学习:模型中添加的层就像在汉堡中加入新的口味和质地,使其更有趣、更美味。
 超参数调优:调整超参数就像调整配方和烹饪过程,制作出完美的汉堡,满足顾客的口味。
+
+比赛评判因素
+准确率 (Accuracy): 在许多机器学习比赛中,模型在测试数据集上的准确率是主要的评判标准。准确率越高,排名越靠前。然而,仅关注准确率可能会忽略模型的其他重要特性。
+模型复杂度 (Model Complexity): 如果比赛对模型的复杂度有所限制,如参数数量或模型深度,则较简单但性能良好的模型可能比复杂的模型排名更高。这鼓励参赛者设计高效且有效的模型架构。
+推理速度 (Inference Speed): 在某些场景下,模型的推理速度可能是一个重要的考量因素。如果比赛要求模型在资源有限的环境中运行,如移动设备或嵌入式系统,则推理速度更快的模型可能排名更高。
+泛化能力 (Generalization Ability): 比赛可能会使用参赛者无法访问的私有测试数据集来评估模型的泛化能力。在这种情况下,过拟合训练数据的模型在排名中可能表现不佳,而能够很好地泛化到新数据的模型则会获得更高的排名。
+创新性 (Innovation): 一些比赛可能会特别关注参赛者的创新性和原创性。引入新颖的技术、架构或训练方法的模型可能会获得额外的认可和更高的排名。
+代码质量和可复现性 (Code Quality and Reproducibility): 比赛可能要求参赛者提交他们的代码以供评审。代码的质量、可读性和可复现性可能会影响排名。良好的代码实践和详细的文档可以帮助参赛者获得更高的排名。
+领域知识的应用 (Domain Knowledge Application): 如果比赛与特定领域相关,如医疗、金融或自然语言处理,则成功应用领域知识的模型可能比通用模型表现更好。展示对问题领域的深入理解可以提高排名。
+模型的可解释性 (Model Interpretability): 在某些领域,如医疗诊断或信用评分,模型的可解释性非常重要。如果比赛要求参赛者提供可解释的模型,则具有良好可解释性的模型可能比"黑盒"模型排名更高。
 ‘’‘
