@@ -134,3 +134,71 @@ with torch.no_grad():
     pred = model(x)
     predicted, actual = classes[pred[0].argmax(0)], classes[y]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
+
+
+’‘’
+Importing necessary libraries (import statements):
+
+This is like gathering all the ingredients and tools we need before opening our hamburger shop, such as buns, patties, vegetables, etc.
+In the code, we import PyTorch libraries (torch), neural network modules (nn), data loaders (DataLoader), and computer vision datasets (datasets).
+
+
+Downloading and preparing data (training_data and test_data):
+
+This is like going out to buy the ingredients for our hamburgers and bringing them back to the shop.
+In the code, we download the Fashion-MNIST dataset and transform it into a format that PyTorch can use (using ToTensor()).
+
+
+Creating data loaders (train_dataloader and test_dataloader):
+
+This is like dividing the ingredients into different trays, each containing a specific portion, making it easier to assemble the hamburgers later.
+In the code, we split the dataset into batches, each containing 64 samples.
+
+
+Choosing the device (device):
+
+This is like deciding which kitchen we'll use to make the hamburgers: a regular kitchen (CPU) or a high-end kitchen (GPU or MPS).
+In the code, we check if a GPU or MPS device is available; if not, we use the CPU.
+
+
+Defining the neural network model (NeuralNetwork class):
+
+This is like designing the assembly line for making hamburgers, deciding the order and combination of buns, patties, and vegetables.
+In the code, we define a neural network with multiple layers of neurons to classify images.
+
+
+Defining the loss function and optimizer (loss_fn and optimizer):
+
+This is like choosing the criteria for judging the quality of our hamburgers (loss function) and the method for improving the recipe (optimizer).
+In the code, we use the cross-entropy loss function (CrossEntropyLoss) and stochastic gradient descent optimizer (SGD).
+
+
+Training the model (train function):
+
+This is like repeatedly making hamburgers according to our designed process and adjusting the recipe based on customer feedback.
+In the code, we iterate over the training dataset, feed the data into the model, calculate the loss, and update the model's parameters through backpropagation and the optimizer.
+
+
+Testing the model (test function):
+
+This is like having some taste testers try our hamburgers and give us scores and feedback.
+In the code, we evaluate the model's performance using the test dataset, calculating accuracy and average loss.
+
+
+Training and testing loop (epochs loop):
+
+This is like practicing making hamburgers over and over, improving based on feedback until we reach a satisfactory level.
+In the code, we perform 5 epochs of training and testing, with each epoch going through the entire training and test datasets.
+
+
+Saving and loading the model (torch.save and torch.load):
+
+This is like writing down our perfected hamburger recipe so that we can use it directly in the future.
+In the code, we save the trained model's parameters to a file and reload them when needed.
+
+
+Using the model for predictions (model.eval and model(x)):
+
+This is like using our perfected recipe to make a hamburger and presenting it to a customer.
+In the code, we use the trained model to predict the class of a single image and print the predicted and actual classes.
+‘’‘
