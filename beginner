@@ -14,8 +14,31 @@
 # check the verson
 import torch
 print(torch.__version__)
+print(torch.version.cuda)
 
 # command for update to lastest
 !pip3 uninstall --yes torch torchaudio torchvision torchtext torchdata
 !pip3 install torch torchaudio torchvision torchtext torchdata
+
+# 2 Using Tutorial Data from Google Drive in Colab
+# online folder import from Google Drive
+from google.colab import drive
+drive.mount('/content/gdrive')
+
+# A popup window will launch:
+# Permit this notebook to access your Google Drive files?
+# you need to cinfirm and config the setting so google drvie and host data online 
+# colab can visit that data , all in cloud
+
+# To start, Download the data ZIP file
+# https://zissou.infosci.cornell.edu/convokit/datasets/movie-corpus/movie-corpus.zip
+
+# you can download then upload to google drive
+# zip file can be process by right click "open with" zip extractor , online
+# it can unzip the .zip file to normal fold and save all to your google drive
+
+
+
+
+
 
