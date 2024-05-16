@@ -7,12 +7,28 @@
 # bug 1  (13th May 2024): quick start in google colab: https://github.com/pytorch/tutorials/blob/gh-pages/_downloads/070179efc13bd796c5dd4af7bf52d5b9/quickstart_tutorial.html
 # 404 - page not found 
 
-
 # STEP 1 PyTorch Version in Google Colab
 # update to lasted pytorch  (2.3)
 
 # check the verson
 import torch
+import os
+import torch
+from torch.jit import script, trace
+import torch.nn as nn
+from torch import optim
+import torch.nn.functional as F
+import csv
+import random
+import re
+import os
+import unicodedata
+import codecs
+from io import open
+import itertools
+import math
+import json
+
 print(torch.__version__)
 print(torch.version.cuda)
 
@@ -42,24 +58,6 @@ corpus = os.path.join("/content/gdrive/My Drive/ioai", corpus_name)
 # path must be full address, "/content/gdrive/My Drive/ioai", is an example 
 # if create folder ioai in home folder of My Drive
 
-# full demo code
-import torch
-from torch.jit import script, trace
-import torch.nn as nn
-from torch import optim
-import torch.nn.functional as F
-import csv
-import random
-import re
-import os
-import unicodedata
-import codecs
-from io import open
-import itertools
-import math
-import json
-
-
 USE_CUDA = torch.cuda.is_available()
 device = torch.device("cuda" if USE_CUDA else "cpu")
 
@@ -80,7 +78,6 @@ printLines(os.path.join(corpus, "utterances.jsonl"))
 # output:
 # Drive already mounted at ...
 # b'{"id": "L1045", "conversation_id":  ...
-
 
 # STEP 3 Enabling CUDA
 # click top right icon （RAM Disk） the bottom link ：
