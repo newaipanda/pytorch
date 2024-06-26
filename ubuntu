@@ -1,0 +1,17 @@
+
+
+    Open Console and change the directory
+
+    cd /opt/
+
+    Extract the file
+
+    sudo tar -xvzf ~/Downloads/jetbrains-toolbox-1.xx.xxxx.tar.gz
+
+    Rename the folder (not mandatory but it's easier for later use)
+
+    sudo mv jetbrains-toolbox-1.xx.xxxx jetbrains
+
+    Open JetBrains Toolbox
+
+    jetbrains/jetbrains-toolbox
