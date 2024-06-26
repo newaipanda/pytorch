@@ -51,3 +51,50 @@ print("SpaCy version:", spacy.__version__)
 print("OpenCV version:", cv2.__version__)
 print("Torchvision version:", torchvision.__version__)
 print("Pillow version:", Image.__version__)
+
+
+import sys
+import torch
+import tensorflow as tf
+import sklearn
+import keras
+import transformers
+import nltk
+import spacy
+import cv2
+import torchvision
+from PIL import Image
+
+# Python版本
+print("Python version:", sys.version)
+
+# PyTorch版本
+print("PyTorch version:", torch.__version__)
+print("CUDA version:", torch.version.cuda)
+
+# TensorFlow版本
+print("TensorFlow version:", tf.__version__)
+print("Scikit-learn version:", sklearn.__version__)
+print("Keras version:", keras.__version__)
+
+# Transformers库版本
+print("Transformers version:", transformers.__version__)
+
+# BERT模型和分词器版本
+from transformers import BertModel, BertTokenizer
+print("BERT Model version:", BertModel.from_pretrained('bert-base-uncased').config._name_or_path)
+print("BERT Tokenizer version:", BertTokenizer.from_pretrained('bert-base-uncased').config._name_or_path)
+
+# T5模型和分词器版本
+from transformers import T5Model, T5Tokenizer
+print("T5 Model version:", T5Model.from_pretrained('t5-small').config._name_or_path)
+print("T5 Tokenizer version:", T5Tokenizer.from_pretrained('t5-small').config._name_or_path)
+
+# 自然语言处理库版本
+print("NLTK version:", nltk.__version__)
+print("SpaCy version:", spacy.__version__)
+
+# 计算机视觉库版本
+print("OpenCV version:", cv2.__version__)
+print("Torchvision version:", torchvision.__version__)
+print("Pillow version:", Image.__version__)
