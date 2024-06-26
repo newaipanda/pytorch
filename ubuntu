@@ -71,7 +71,61 @@ print("T5 Tokenizer version:", T5Tokenizer.from_pretrained('t5-small').config._n
 print("NLTK version:", nltk.__version__)
 print("SpaCy version:", spacy.__version__)
 
+
 # 计算机视觉库版本
 print("OpenCV version:", cv2.__version__)
 print("Torchvision version:", torchvision.__version__)
 print("Pillow version:", Image.__version__)
+
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+PyTorch version: 2.3.0+cu121
+CUDA version: 12.1
+TensorFlow version: 2.15.0
+Scikit-learn version: 1.2.2
+Keras version: 2.15.0
+Transformers version: 4.41.2
+
+/usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_token.py:89: UserWarning: 
+The secret `HF_TOKEN` does not exist in your Colab secrets.
+To authenticate with the Hugging Face Hub, create a token in your settings tab (https://huggingface.co/settings/tokens), set it as secret in your Google Colab and restart your session.
+You will be able to reuse this secret in all of your notebooks.
+Please note that authentication is recommended but still optional to access public models or datasets.
+  warnings.warn(
+
+config.json: 100%
+ 570/570 [00:00<00:00, 16.4kB/s]
+model.safetensors: 100%
+ 440M/440M [00:06<00:00, 69.6MB/s]
+
+BERT Model version: bert-base-uncased
+
+tokenizer_config.json: 100%
+ 48.0/48.0 [00:00<00:00, 3.04kB/s]
+vocab.txt: 100%
+ 232k/232k [00:00<00:00, 1.92MB/s]
+
+#conda config
+nano ~/.bashrc
+export PATH="$HOME/miniconda3/bin:$PATH"
+source ~/.bashrc
+conda -V
+conda 24.5.0
+
+# create colab env, Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+conda create -n colab_env python=3.10 
+
+conda activate colab_env
+conda env list
+# conda deactivate
+
+
+# go to https://developer.nvidia.com/cuda-12-1-0-download-archive
+# choose right version 
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb
+sudo dpkg -i cuda-keyring_1.0-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda
+
+# cuda 12.1 and nvidia driver must match, not lastest one always works
+# check : https://docs.nvidia.com/cuda/archive/12.1.0/
+
