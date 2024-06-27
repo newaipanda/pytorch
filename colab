@@ -34,3 +34,38 @@
 # print(torch.cuda.get_device_name(0))
 
 # exit()
+
+
+为了找到Google Colab当前的环境配置，您可以按以下步骤操作：
+
+1. 在Colab笔记本中运行系统命令来查看环境信息：
+
+   可以使用以下代码来获取关键信息：
+
+   ```python
+   !nvidia-smi
+   !nvcc --version
+   !python --version
+   !pip list
+   !pip show torch
+   !python -c "import torch; print(torch.__version__)"
+   !python -c "import torch; print(torch.version.cuda)"
+   ```
+
+   这些命令会显示GPU信息、CUDA版本、Python版本、已安装的包列表以及PyTorch和CUDA的具体版本。
+
+2. 检查Colab的运行时类型：
+   在"运行时"菜单中，选择"更改运行时类型"，查看当前使用的硬件加速器（GPU/TPU）。
+
+3. 查看Colab的系统信息：
+   您可以运行以下命令来获取更详细的系统信息：
+
+   ```python
+   !cat /etc/os-release
+   !uname -a
+   ```
+
+4. 记录所有关键信息：
+   将上述步骤中获取的所有版本信息、包列表和系统信息记录下来，这将是您在本地环境复制Colab配置的重要参考。
+
+获取了这些信息后，您就可以开始在新的电脑上搭建相同的环境了。如果您需要关于如何在本地部署相同环境的建议，我可以为您提供具体的步骤。​​​​​​​​​​​​​​​​
