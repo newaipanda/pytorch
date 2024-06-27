@@ -71,5 +71,5 @@
 获取了这些信息后，您就可以开始在新的电脑上搭建相同的环境了。如果您需要关于如何在本地部署相同环境的建议，我可以为您提供具体的步骤。​​​​​​​​​​​​​​​​
 
 !pip freeze > requirements.txt
-
+# remove google-colab @ file:///colabtools/dist/google-colab-1.0.0.tar.gz#sha256=4b82ee85a233a3034fc34bde479ecda74a4fce0b408178f732d12a0161bc0de8
 pip install -r requirements.txt
