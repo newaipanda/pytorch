@@ -144,3 +144,12 @@ sudo rm -rf /etc/X11/xorg.conf
 sudo apt-get install nvidia-driver-530
 
 sudo apt install cuda-12-1
+
+### pinyin input
+    Open Settings, go to Region & Language -> Manage Installed Languages -> Install / Remove languages.
+    Select Chinese (Simplified). Make sure Keyboard Input method system has Ibus selected. Apply.
+    Reboot (please don't think "this isn't necessary", just do it or you will waste more precious time!)
+    Log back in, reopen Settings, go to Keyboard.
+    Click on the "+" sign under Input sources.
+    Select Chinese (China) and then Chinese (Intelligent Pinyin).
+
