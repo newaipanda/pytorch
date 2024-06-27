@@ -1,0 +1,36 @@
+# ubuntu 22.04
+
+# mini install, no 3rd part
+
+# install nvidia-driver-xxx (lastest)
+
+# https://developer.nvidia.com/cuda-12-2-2-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=runfile_local
+# check the right cuda version use runfile
+# wget https://developer.download.nvidia.com/compute/cuda/12.2.2/local_installers/cuda_12.2.2_535.104.05_linux.runsudo 
+# sh cuda_12.2.2_535.104.05_linux.run
+
+# uncheck the driver ! Because it is installed to latest, only need cuda install
+
+#   $ echo "export PATH=/usr/local/cuda-12.0/bin${PATH:+:${PATH}}" >> /home/pythonuser/.bashrc
+#   $ echo "export LD_LIBRARY_PATH=/usr/local/cuda-12.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}" >> /home/pythonuser/.bashrc
+# source /home/pythonuser/.bashrc
+
+# nvidia-smi
+# nvcc --version
+
+# go to developer of nvidia
+# find cuDNN and install lastest
+  
+# mini conda website then install
+# conda -n xxx create
+# conda activate xxx
+
+# go to pytorch.com find the install script
+# conda install...
+# python test:
+# import torch
+# print(torch.__version__)
+# print(torch.cuda.is_available())
+# print(torch.cuda.get_device_name(0))
+
+# exit()
