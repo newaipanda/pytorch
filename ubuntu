@@ -26,6 +26,10 @@ rm -rf ~/miniconda3/miniconda.sh
 ~/miniconda3/bin/conda init zsh
 
 panda@panda-System-Product-Name:~/miniconda3/bin$ ./conda -V
+
+# key update, colab using Ubuntu 20.04 not 22.04
+# https://gsl-syd.mm.fcix.net/ubuntu-releases/20.04.6/
+# gcc using 12
 conda 24.4.0
 
 
