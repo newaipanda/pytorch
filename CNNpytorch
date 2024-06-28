@@ -32,23 +32,20 @@ class SimpleCNN(nn.Module):
         return output
 
 # 加载MNIST数据集
-transform = transforms.Compose([transforms.ToTensor(),
-                                transforms.Normalize((0.1307,), (0.3081,))])
+def load_data():
+    transform = transforms.Compose([transforms.ToTensor(),
+                                    transforms.Normalize((0.1307,), (0.3081,))])
 
-train_dataset = datasets.MNIST('data', train=True, download=True, transform=transform)
-test_dataset = datasets.MNIST('data', train=False, transform=transform)
+    train_dataset = datasets.MNIST('data', train=True, download=True, transform=transform)
+    test_dataset = datasets.MNIST('data', train=False, transform=transform)
 
-train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=1000, shuffle=False)
+    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=1000, shuffle=False)
 
-# 初始化模型、损失函数和优化器
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = SimpleCNN().to(device)
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters())
+    return train_loader, test_loader
 
 # 训练模型
-def train(model, device, train_loader, optimizer, epoch):
+def train(model, device, train_loader, optimizer, criterion, epoch, total_epochs):
     model.train()
     start_time = time.time()
     for batch_idx, (data, target) in enumerate(train_loader):
@@ -61,12 +58,16 @@ def train(model, device, train_loader, optimizer, epoch):
         if batch_idx % 100 == 0:
             elapsed_time = time.time() - start_time
             its = (batch_idx + 1) / elapsed_time
-            print(f'Train Epoch: {epoch} [{batch_idx * len(data)}/{len(train_loader.dataset)}'
+            progress = (epoch - 1 + (batch_idx + 1) / len(train_loader)) / total_epochs
+            estimated_total_time = elapsed_time / progress if progress > 0 else 0
+            remaining_time = max(estimated_total_time - elapsed_time, 0)
+            print(f'Train Epoch: {epoch}/{total_epochs} [{batch_idx * len(data)}/{len(train_loader.dataset)}'
                   f' ({100. * batch_idx / len(train_loader):.0f}%)]\tLoss: {loss.item():.6f}'
-                  f'\tSpeed: {its:.2f} it/s')
+                  f'\tSpeed: {its:.2f} it/s'
+                  f'\tEst. remaining: {remaining_time/60:.2f} minutes')
 
 # 测试模型
-def test(model, device, test_loader):
+def test(model, device, test_loader, criterion):
     model.eval()
     test_loss = 0
     correct = 0
@@ -79,18 +80,47 @@ def test(model, device, test_loader):
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     test_loss /= len(test_loader.dataset)
+    accuracy = 100. * correct / len(test_loader.dataset)
     print(f'\nTest set: Average loss: {test_loss:.4f}, '
           f'Accuracy: {correct}/{len(test_loader.dataset)} '
-          f'({100. * correct / len(test_loader.dataset):.2f}%)\n')
+          f'({accuracy:.2f}%)\n')
+    return accuracy
 
-# 运行训练和测试
-total_start_time = time.time()
-for epoch in range(1, 6):
-    epoch_start_time = time.time()
-    train(model, device, train_loader, optimizer, epoch)
-    test(model, device, test_loader)
-    epoch_time = time.time() - epoch_start_time
-    print(f"Epoch {epoch} completed in {epoch_time:.2f} seconds")
+def main():
+    # 设置设备
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
 
-total_time = time.time() - total_start_time
-print(f"Training complete! Total time: {total_time:.2f} seconds")
+    # 加载数据
+    train_loader, test_loader = load_data()
+
+    # 初始化模型、损失函数和优化器
+    model = SimpleCNN().to(device)
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters())
+
+    # 设置训练参数
+    total_epochs = 5
+
+    # 训练和测试循环
+    total_start_time = time.time()
+    best_accuracy = 0
+
+    for epoch in range(1, total_epochs + 1):
+        epoch_start_time = time.time()
+        train(model, device, train_loader, optimizer, criterion, epoch, total_epochs)
+        accuracy = test(model, device, test_loader, criterion)
+        epoch_time = time.time() - epoch_start_time
+        print(f"Epoch {epoch} completed in {epoch_time:.2f} seconds")
+
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            torch.save(model.state_dict(), 'best_model.pth')
+            print(f"New best model saved with accuracy: {best_accuracy:.2f}%")
+
+    total_time = time.time() - total_start_time
+    print(f"Training complete! Total time: {total_time:.2f} seconds")
+    print(f"Best test accuracy: {best_accuracy:.2f}%")
+
+if __name__ == '__main__':
+    main()
