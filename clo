@@ -1,23 +1,23 @@
-    [V] - 动词: I [walk] to school every day.
-    [N] - 名词: The [cat] sleeps on the sofa.
-    [ADJ] - 形容词: She wore a [beautiful] dress.
-    [ADV] - 副词: He ran [quickly] across the field.
-    [1] - 第一人称: [I] am going to the store.
-    [2] - 第二人称: Are [you] coming to the party?
-    [3] - 第三人称: [She] sings beautifully.
-    [SG] - 单数: The [dog] [barks] loudly.
-    [PL] - 复数: The [dogs] [bark] loudly.
-    [MASC] - 阳性: [He] is my brother.
-    [FEM] - 阴性: [She] is my sister.
-    [NEUT] - 中性: [It] is raining outside.
-    [NOM] - 主格: [He] gave her a gift.
-    [ACC] - 宾格: She gave [him] a gift.
-    [DAT] - 与格: She gave a gift [to him].
-    [GEN] - 属格: This is [John's] book.
-    [PRES] - 现在时: She [walks] to work every day.
-    [PAST] - 过去时: Yesterday, she [walked] to work.
-    [FUT] - 将来时: Tomorrow, she will [walk] to work.
-    [COND] - 条件式: If it rains, I [would stay] at home.
+[V] - Verb {动词}: I [walk] to school every day.
+[N] - Noun {名词}: The [cat] sleeps on the sofa.
+[ADJ] - Adjective {形容词}: She wore a [beautiful] dress.
+[ADV] - Adverb {副词}: He ran [quickly] across the field.
+[1] - First Person {第一人称}: [I] am going to the store.
+[2] - Second Person {第二人称}: Are [you] coming to the party?
+[3] - Third Person {第三人称}: [She] sings beautifully.
+[SG] - Singular {单数}: The [dog] [barks] loudly.
+[PL] - Plural {复数}: The [dogs] [bark] loudly.
+[MASC] - Masculine {阳性}: [He] is my brother.
+[FEM] - Feminine {阴性}: [She] is my sister.
+[NEUT] - Neuter {中性}: [It] is raining outside.
+[NOM] - Nominative Case {主格}: [He] gave her a gift.
+[ACC] - Accusative Case {宾格}: She gave [him] a gift.
+[DAT] - Dative Case {与格}: She gave a gift [to him].
+[GEN] - Genitive Case {属格}: This is [John's] book.
+[PRES] - Present Tense {现在时}: She [walks] to work every day.
+[PAST] - Past Tense {过去时}: Yesterday, she [walked] to work.
+[FUT] - Future Tense {将来时}: Tomorrow, she will [walk] to work.
+[COND] - Conditional Mood {条件式}: If it rains, I [would stay] at home.
 
 
 If I[1][SG][NOM] had known earlier, 
