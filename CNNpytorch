@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
+import time
 
 # 定义CNN模型
 class SimpleCNN(nn.Module):
@@ -49,6 +50,7 @@ optimizer = optim.Adam(model.parameters())
 # 训练模型
 def train(model, device, train_loader, optimizer, epoch):
     model.train()
+    start_time = time.time()
     for batch_idx, (data, target) in enumerate(train_loader):
         data, target = data.to(device), target.to(device)
         optimizer.zero_grad()
@@ -57,8 +59,11 @@ def train(model, device, train_loader, optimizer, epoch):
         loss.backward()
         optimizer.step()
         if batch_idx % 100 == 0:
+            elapsed_time = time.time() - start_time
+            its = (batch_idx + 1) / elapsed_time
             print(f'Train Epoch: {epoch} [{batch_idx * len(data)}/{len(train_loader.dataset)}'
-                  f' ({100. * batch_idx / len(train_loader):.0f}%)]\tLoss: {loss.item():.6f}')
+                  f' ({100. * batch_idx / len(train_loader):.0f}%)]\tLoss: {loss.item():.6f}'
+                  f'\tSpeed: {its:.2f} it/s')
 
 # 测试模型
 def test(model, device, test_loader):
@@ -79,8 +84,13 @@ def test(model, device, test_loader):
           f'({100. * correct / len(test_loader.dataset):.2f}%)\n')
 
 # 运行训练和测试
+total_start_time = time.time()
 for epoch in range(1, 6):
+    epoch_start_time = time.time()
     train(model, device, train_loader, optimizer, epoch)
     test(model, device, test_loader)
+    epoch_time = time.time() - epoch_start_time
+    print(f"Epoch {epoch} completed in {epoch_time:.2f} seconds")
 
-print("Training complete!")
+total_time = time.time() - total_start_time
+print(f"Training complete! Total time: {total_time:.2f} seconds")
