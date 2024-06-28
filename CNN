@@ -1,0 +1,42 @@
+    Convolutional Kernels (Filters):
+        Convolutional kernels are small-sized matrices (e.g., 3x3, 5x5) that slide over the input image (performing convolution operations).
+        Each kernel can extract specific types of features, such as edges, corners, or textures.
+
+    Feature Maps:
+        Convolutional kernels convolve with the input image to generate a new matrix called a feature map or activation map.
+        Each feature map reflects the presence and location of a specific feature in the input image.
+
+    Hierarchical Feature Extraction:
+        Convolutional neural networks (CNNs) typically consist of multiple convolutional layers, where features extracted become increasingly abstract and complex.
+        Initial layers may extract simple edge and texture features, while subsequent layers may capture more complex shapes and object features.
+
+    Activation Function:
+        After the convolution operation, a nonlinear activation function (e.g., ReLU) is usually applied to increase the network's expressiveness and enable it to capture complex nonlinear features of the input data.
+
+    Pooling Layers:
+        Pooling layers usually follow convolutional layers to reduce the size of the feature maps, decrease computational load, and make the features more invariant (e.g., translation invariance).
+
++--------+    +--------+    +--------+    +--------+    +--------+
+| Conv1  | -> | Conv2  | -> | Conv3  | -> | Conv4  | -> | Conv5  |
+| 11x11  |    | 5x5    |    | 3x3    |    | 3x3    |    | 3x3    |
++--------+    +--------+    +--------+    +--------+    +--------+
+     |               |              |              |              |
+     v               v              v              v              v
++--------+    +--------+    +--------+    +--------+    +--------+
+| ReLU   |    | ReLU   |    | ReLU   |    | ReLU   |    | ReLU   |
++--------+    +--------+    +--------+    +--------+    +--------+
+     |               |              |              |              |
+     v               v              v              v              v
++--------+    +--------+    +--------+    +--------+    +--------+
+| Pool1  |    | Pool2  |    | Pool3  |    | Pool4  |    | Pool5  |
++--------+    +--------+    +--------+    +--------+    +--------+
+     |               |              |              |              |
+     v               v              v              v              v
++-----------------------------+    +-----------------------------+
+|       Fully Connected       | -> |       Fully Connected       |
++-----------------------------+    +-----------------------------+
+     |                                         |
+     v                                         v
++-----------------------------+    +-----------------------------+
+|           Output            |    |           Output            |
++-----------------------------+    +-----------------------------+
