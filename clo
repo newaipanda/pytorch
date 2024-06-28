@@ -17,11 +17,12 @@
 [PRES] - Present Tense {现在时}: She [walks] to work every day.
 [PAST] - Past Tense {过去时}: Yesterday, she [walked] to work.
 [FUT] - Future Tense {将来时}: Tomorrow, she will [walk] to work.
+[PFV] - Perfective Aspect {完成体}: She [has finished][V][PFV] her homework.
 [COND] - Conditional Mood {条件式}: If it rains, I [would stay] at home.
 
 
+
 If I[1][SG][NOM] had known earlier, 
-I[1][SG][NOM] would have given[V][COND] him[3][SG][MASC][DAT] 
+I[1][SG][NOM] would have given[V][COND][PFV] him[3][SG][MASC][DAT],
 the beautiful[ADJ] gift[N][SG][ACC] [yesterday][ADV][PAST], 
 but now [he][3][SG][MASC][NOM] will probably buy it himself[3][SG][MASC][ACC].
-
